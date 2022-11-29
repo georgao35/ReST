@@ -1,0 +1,40 @@
+algo_defaults: &algo_defaults
+  hid_sizes: [64, 64]
+  log_std_init: -0.5
+  vf_lr: 0.001
+  train_v_iters: 80
+  target_kl: 0.01
+
+env_defaults: &env_defaults
+  gamma: 0.99
+  gaelam: 0.95
+  traj_len: 1000
+  interactions: 10000
+
+nav2d:
+  <<: *env_defaults
+  num_envs: 100
+
+PPO: 
+  <<: *algo_defaults
+  clip_ratio: 0.2
+  train_pi_iters: 20
+  pi_lr: 0.0003
+  penalty_init: 0.1
+  penalty_lr: 0.05
+
+Ant: 
+  <<: *env_defaults
+  env_name: Ant-v3
+
+HalfCheetah: 
+  <<: *env_defaults
+  env_name: HalfCheetah-v3
+
+Hopper: 
+  <<: *env_defaults
+  env_name: Hopper-v3
+
+Walker2d: 
+  <<: *env_defaults
+  env_name: Walker2d-v3
