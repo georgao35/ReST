@@ -11,10 +11,6 @@ env_defaults: &env_defaults
   traj_len: 1000
   interactions: 10000
 
-nav2d:
-  <<: *env_defaults
-  num_envs: 100
-
 PPO: 
   <<: *algo_defaults
   clip_ratio: 0.2
